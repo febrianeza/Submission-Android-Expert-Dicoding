@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/feedsFragment">
+
+    <fragment
+        android:id="@+id/feedsFragment"
+        android:name="com.ezafebrian.submissionexpert.ui.feeds.FeedsFragment"
+        android:label="Feeds"
+        tools:layout="@layout/fragment_feeds">
+        <action
+            android:id="@+id/action_feedsFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.ezafebrian.submissionexpert.ui.detail.DetailFragment"
+        android:label="Feeds Detail"
+        tools:layout="@layout/fragment_detail">
+        <argument
+            android:name="feeds"
+            app:argType="com.ezafebrian.core.domain.model.Feeds" />
+
+    </fragment>
+    <include-dynamic
+        android:id="@+id/favorite_nav_graph"
+        app:graphResName="favorite_nav_graph"
+        app:moduleName="favorite" />
+
+</navigation>
