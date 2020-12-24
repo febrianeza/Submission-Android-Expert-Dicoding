@@ -10,6 +10,7 @@ dependencies {
     implementation "androidx.cardview:cardview:$cardview_version"
     implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
     implementation "com.google.android.material:material:$material_version"
+    implementation "androidx.fragment:fragment:$fragment_version"
 
     //koin
     implementation "org.koin:koin-core:$koin_version"
