@@ -22,4 +22,9 @@ dependencies {
     api "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
 
     implementation("io.coil-kt:coil:1.0.0")
+
+    implementation "net.zetetic:android-database-sqlcipher:4.4.0"
+    implementation "androidx.sqlite:sqlite-ktx:2.1.0"
+
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakcanary_version"
 }

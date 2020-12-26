@@ -1,6 +1,5 @@
 package com.ezafebrian.core.data.source.local
 
-import android.util.Log
 import com.ezafebrian.core.data.source.local.dao.FeedsDao
 import com.ezafebrian.core.data.source.local.entity.FeedsEntity
 import kotlinx.coroutines.flow.Flow

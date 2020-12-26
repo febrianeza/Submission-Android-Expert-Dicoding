@@ -9,6 +9,8 @@ import com.ezafebrian.core.data.source.remote.network.ApiService
 import com.ezafebrian.core.domain.repository.IFeedsRepository
 import com.ezafebrian.core.utils.AppExecutors
 import com.ezafebrian.core.utils.Consts.BASE_URL
+import net.sqlcipher.database.SQLiteDatabase
+import net.sqlcipher.database.SupportFactory
 import okhttp3.CertificatePinner
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -23,11 +25,16 @@ val databaseModule = module {
         get<Database>().dao()
     }
     single {
+        val passPhrase: ByteArray = SQLiteDatabase.getBytes("dicoding".toCharArray())
+        val factory = SupportFactory(passPhrase)
+
         Room.databaseBuilder(
             androidContext(),
             Database::class.java,
             "Feed.db"
-        ).fallbackToDestructiveMigration().build()
+        ).fallbackToDestructiveMigration()
+            .openHelperFactory(factory)
+            .build()
     }
 }
 
